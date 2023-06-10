@@ -108,6 +108,10 @@ async function run() {
     });
 
     // class api
+    app.get("/classes", async (req, res) => {
+        const result = await classCollection.find().toArray();
+        res.send(result);
+      });
 
     app.post("/classes", async (req, res) => {
       const input = req.body;
